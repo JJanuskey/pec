@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Promise • Front</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Aldrich:wght@400&amp;family=Inter:wght@400;500;600&amp;display=swap');
+        
+        .rack-card {
+            width: 380px;
+            height: 860px;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25), 0 10px 10px -6px rgb(0 0 0 / 0.1);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .teal-header {
+            background: linear-gradient(135deg, #007298 0%, #005a75 100%);
+        }
+        
+        .section-header {
+            font-family: 'Aldrich', system_ui, -apple-system, sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        .icon-circle {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .rack-shadow {
+            box-shadow: 0 20px 25px -5px rgb(15 118 110 / 0.1), 0 8px 10px -6px rgb(15 118 110 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white flex items-center justify-center min-h-screen">
+    <div class="rack-card bg-white rounded-2xl overflow-hidden rack-shadow flex flex-col">
+        
+        <!-- Top Teal Bar -->
+        <div class="teal-header px-5 py-3.5 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-x-2">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAACWCAMAAAA1xQYDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAwBQTFRFbcS2XcC5gs7dccW26fbyg87lfsq4dsnU5PPqhsy4dMa2tN7D6vbujc+5w+bUYsC/1e/slNXTgc7kWb61asTGdMjShtDpmtfkYMC1zevsltK5+Pz+3/HlpNi7XL+17/jzgs7IeMrWveX1csjQote6i8658/j6yunkq97aoNa6YMC7ccfOasXKitHYZMLBotrTi9HKteLcpdzabsbKbMTIm9W6zOncYMC8v+PMfczdccfRkNC56ff8dsi3fMvaueTrWr63lNTKmdS6esi3ZMG1asO28fn1b8bMcMbNvOTdpNrMWr+0Z8LC7Pf3g8u4dcnDn9a72u/ipdzid8i3jtLkxej3qd3lf83ezuzzaMPFptm74fP6Z8K1idDurdzFotrresvags3iiM24jtC5gc3g3fHsesvKacK1YcG1xObYbca8gMu4gc3j9fv6rd/t8Pn92fDw+Pz6m9XE1O3hvuXmndW65PX2esvSseDifszdo9jD2vH6XL+3m9fN3fL2P5e1b8fBhc2+ldTFwefyv+TUj9G9q93S0Oz09vz85vX4Z8S+5vXyjc+8g82/dsjN9vv8s9/Tqdm7itHvis+9fcvVV76zb7HIz+XslNCqn8vayefUS566r9y/2+vx5/L2h77Rt9jjY6vDV6S+fMi3h9Ds+v37ktTwq9He9Pr20+75mdfxe7jMktC5w97ok8XWesvZp93zXsC24vT71OzdecvYhc/nbcO2bcXKk9G6Z8PFtuL1ZcLClNG6iNDridDtqNm7l9O5hMu4oNryldO50Oram9OvwObiWb62pNe6ic65fczbY8G/w+XPgMy3ueDIoda1asK1Z8LDqNm6Y8LCgs3hZsG1zOv4fs3gd8rYYcK/r+D0ZMHAldG5mtS53/PxecvFZ8TGe8q3YcC9vOLKw+fs0uzdg87kn9W79/z7qdvKesvchM/gjtPsb8fHecm9m9S+Z8O52u/sode+ltK+t+DI4vTxnNW+4vT0YMG+w+jmbMbDr+DbtODXpdi/td/P////mvFj3QAAAQB0Uk5T////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AFP3ByUAABMvSURBVHja7N0JfBTVHQfwoChgQhGBWgySKGYBEcGDAnJ5FVTEE4qId9HigYhaTzT1rEfVzraz62azp4QEYgJyeFRbKwJeeNS7nvWsrb3sXW07nXvmvXlndnazS/6/tp8PzW5md2e+ede897ZKg0CKkCo4BRCABQFYEIAFgQAsCMCCACwIBGBBABYEYEEgAAsCsCAACwIBWBCABQFYEAjAggAsCMCCQAAWBGBBABYEArAgAAsCsCCQyoB1ydZR4+u/r+oZNHvQv+rrD7xq1zlw/gFWIakdeuD7qpdBs59a3uuBXr323ffLgZdfAdcAYHUpS7aOX64iMWAtX27AmjhxwIDjR4EtgCVfAQ4cruJBYD333Nv7n3f5ErgSAEsiW99XCXFhfTjxQxPWo48uOAnaWwBLtGW19QJVZcKaaMLaX4d17C8fORBoASwRVjPuUCkZNOgpw1UvpyY0XC14ZMHgk+6B6wGwOKxu+oOq0mEdajexfAXWgsGDB9/9MVwQgMViNW+H5SoD1mwfrLd1WMceu8CEdfDBA6E+BFh0Vr//taoKwPpw4oABdk1outJhPXT3ULgmAIvMauVuvVQ2LLsqNJtYZk3oFFgPPXTQQSfVwlUBWHiW/nRl9M3lbFfqbAeW3cTyFVgHHTRr1tilcFkAFsYqGo0eoqpCsJwmlllgDXYKrFmzjjrqShiKB1g4q+h+qjgsvYnlFViuqzFjrrw+1M8Ya6Qn356NIE+OM57cGOtM4Qdv5CXmf3akM894ajKTIh0bfcFIgn6IXFYjfZgY+tNUJsl8x+1x9PkJ+8f0M2y/TqIYsCxWIq50WE7bXa8J/S0soyLUXY05ZMTQUsEyLmdCGJZxkVIFwOpI8p6d4MFKsQ+Ri3BhJbhvubGT+AuJboBlsxJy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" alt="Precision Eye Care Logo" class="w-auto h-[52px] object-contain flex-shrink-0">
+                
+            </div>
+            <div class="text-right">
+                <span class="text-[10px] text-teal-200 font-medium tracking-widest">EST 2007</span>
+            </div>
+        </div>
+
+        <!-- Hero Image (CORRECTED - your attached smiling girl photo) -->
+        <div class="relative h-[240px] bg-slate-200 overflow-hidden">
+            <img src="https://github.com/JJanuskey/pec/blob/main/Hero.jpg?raw=true"
+                 class="w-full h-full object-cover" 
+                 alt="Happy young girl with glasses smiling in our optical - Precision Promise hero photo">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/30"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="px-5 pt-5 pb-4 flex-1">
+            
+            <!-- Headline -->
+            <div class="mb-3">
+                <h1 class="section-header text-[24px] leading-none tracking-[-1.5px] text-slate-900 whitespace-nowrap">PRECISION PROMISE<sup class="text-[10px] align-super ml-0.5">™</sup></h1>
+                <p class="text-teal-700 font-semibold text-[13px] mt-1 tracking-tight">Real protection. Real peace of mind.</p>
+            </div>
+
+            <!-- Social Proof -->
+            <div class="mb-4 flex items-start gap-x-2">
+                <div class="mt-0.5">
+                    <i class="fa-solid fa-users text-teal-600 text-sm"></i>
+                </div>
+                <p class="text-[12.5px] text-slate-600 leading-snug">
+                    Hundreds of patients have counted on the Precision Promise to replace their glasses — many more than once.
+                </p>
+            </div>
+
+            <!-- Core Promise -->
+            <div class="bg-slate-50 border border-slate-100 rounded-2xl p-4 mb-4">
+                <div class="flex items-center gap-x-3 mb-2.5">
+                    <div class="icon-circle bg-teal-100 text-teal-700 rounded-full flex-shrink-0">
+                        <i class="fa-solid fa-shield-halved text-sm"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold text-slate-800 text-[13.5px] tracking-tight">If your glasses break, we replace them.</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-2.5">
+                    <!-- 45 Days Free -->
+                    <div class="bg-white border border-emerald-100 rounded-xl px-3 py-2.5">
+                        <div class="flex items-baseline gap-x-1">
+                            <span class="text-emerald-600 text-xl font-bold tracking-tighter">45</span>
+                            <span class="text-emerald-600 text-xs font-semibold">DAYS</span>
+                        </div>
+                        <p class="text-emerald-700 text-[11.5px] font-semibold leading-none mt-px">Free replacement</p>
+                        <p class="text-emerald-600/70 text-[10px]">No cost to you</p>
+                    </div>
+                    
+                    <!-- After -->
+                    <div class="bg-white border border-blue-100 rounded-xl px-3 py-2.5">
+                        <div class="flex items-baseline gap-x-1">
+                            <span class="text-blue-400 text-xl font-bold tracking-tighter">$39</span>
+                        </div>
+                        <p class="text-blue-500 text-[11.5px] font-semibold leading-none mt-px">Co-pay after 45 days</p>
+                        <p class="text-blue-400 text-[10px]">Per incident • For the rest of the year</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Trust Line -->
+            <div class="text-center">
+                <p class="text-teal-700 text-xs font-semibold tracking-wider">NO QUESTIONS. NO STRESS.<br>WE'VE GOT YOUR FAMILY COVERED.</p>
+            </div>
+
+            <!-- Social Proof Stars -->
+            <div class="text-center mt-1.5 flex items-center justify-center gap-x-1">
+                <div class="flex text-amber-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="text-emerald-600 text-[10.5px] font-semibold tracking-wider">4.9 from 400+ reviews</p>
+            </div>
+
+            <!-- Subtle CTA -->
+            <div class="text-center mt-2.5">
+                <p class="text-teal-600 text-[11px] font-semibold tracking-wider">Ask us how the Precision Promise protects your family.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-slate-900 px-5 py-3 text-center flex-shrink-0 rounded-b-2xl">
+            <p class="text-white text-xs font-semibold tracking-wider">PRECISION EYE CARE</p>
+            <p class="text-teal-400 text-[10px] mt-px">The Precision Promise™ — protecting our patients for nearly 20 years.</p>
+            <p class="text-teal-300 text-[9.5px] mt-1">College Station, TX • 979.985.5305</p>
+        </div>
+        
+    </div>
+</body>
+</html>
