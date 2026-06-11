@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Promise • Back</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Aldrich:wght@400&amp;family=Inter:wght@400;500;600&amp;display=swap');
+       
+        .rack-card {
+            width: 380px;
+            height: 860px;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25), 0 10px 10px -6px rgb(0 0 0 / 0.1);
+            border: 1px solid #e5e7eb;
+        }
+       
+        .teal-header {
+            background: linear-gradient(135deg, #007298 0%, #005a75 100%);
+        }
+       
+        .section-header {
+            font-family: 'Aldrich', system_ui, -apple-system, sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+       
+        .icon-circle {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+       
+        .rack-shadow {
+            box-shadow: 0 20px 25px -5px rgb(15 118 110 / 0.1), 0 8px 10px -6px rgb(15 118 110 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white flex items-center justify-center min-h-screen">
+    <div class="rack-card bg-white rounded-2xl overflow-hidden rack-shadow flex flex-col">
+       
+        <!-- Top Teal Bar -->
+        <div class="teal-header px-5 py-3.5 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-x-2">
+                <img src="https://github.com/JJanuskey/pec/blob/main/Precision_FinalLogo_transparent%20background.png?raw=true" 
+                     alt="Precision Eye Care Logo" 
+                     class="w-auto h-[85px] object-contain flex-shrink-0">
+            </div>
+        </div>
+       
+        <!-- Content Area -->
+        <div class="px-5 pt-4 flex-1 flex flex-col">
+           
+            <!-- How It Works -->
+            <div class="mb-4">
+                <div class="flex items-center gap-x-2 mb-3">
+                    <div class="icon-circle bg-teal-100 text-teal-700 rounded-full">
+                        <i class="fa-solid fa-shield-halved text-sm"></i>
+                    </div>
+                    <h2 class="section-header text-lg tracking-tighter text-slate-900">How the Precision Promise<sup class="text-[9px] align-super ml-0.5">™</sup> Works</h2>
+                </div>
+               
+                <div class="space-y-3 pl-1">
+                    <!-- Year Protection -->
+                    <div class="flex gap-x-3">
+                        <div class="w-5 flex-shrink-0 pt-1">
+                            <i class="fa-regular fa-calendar text-teal-600 text-base"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-[13px] font-semibold text-slate-800">1 full year of protection</p>
+                            <p class="text-xs text-slate-500">From your prescription date</p>
+                        </div>
+                    </div>
+                   
+                    <!-- 45 Days Free -->
+                    <div class="flex gap-x-3">
+                        <div class="w-5 flex-shrink-0 pt-1">
+                            <i class="fa-solid fa-check-circle text-emerald-600 text-base"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-baseline gap-x-1.5">
+                                <span class="font-bold text-emerald-600 text-[15px]">First 45 days</span>
+                            </div>
+                            <p class="text-sm text-emerald-700 font-semibold">Free replacement if your glasses break</p>
+                        </div>
+                    </div>
+                   
+                    <!-- After 45 Days -->
+                    <div class="flex gap-x-3">
+                        <div class="w-5 flex-shrink-0 pt-1">
+                            <i class="fa-solid fa-dollar-sign text-blue-400 text-base"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-[13px] font-semibold text-slate-800">After 45 days through the end of the year</p>
+                            <p class="text-sm"><span class="font-bold text-blue-400">$39 co-pay</span> <span class="text-slate-500">— simple and predictable</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- 45-Day Fit Guarantee -->
+            <div class="mb-4 bg-teal-50 border border-teal-100 rounded-2xl p-4">
+                <div class="flex gap-x-2.5">
+                    <div class="mt-0.5">
+                        <i class="fa-solid fa-sync text-teal-600 text-lg"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold text-teal-800 text-[13.5px] tracking-tight">45-Day Fit &amp; Satisfaction Guarantee</p>
+                        <p class="text-teal-700 text-xs mt-1 leading-snug">Not happy with fit, style, comfort, or your new prescription? We’ll exchange your frames or lenses once — at no charge.</p>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Contact Lens Exchange -->
+            <div class="mb-4 bg-teal-50 border border-teal-100 rounded-2xl p-4">
+                <div class="flex gap-x-2.5">
+                    <div class="mt-0.5">
+                        <i class="fa-solid fa-sync text-teal-600 text-lg"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold text-teal-800 text-[13.5px] tracking-tight">Contact Lens Exchange</p>
+                        <p class="text-teal-700 text-xs mt-1 leading-snug">45 days to exchange unopened boxes in their original condition.</p>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Frame & Lens Exchange Details (cleaner wording) -->
+            <div class="mb-4 bg-amber-50 border border-amber-100 rounded-2xl p-4">
+                <div class="flex gap-x-2.5">
+                    <div class="mt-0.5">
+                        <i class="fa-solid fa-info-circle text-amber-600 text-lg"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold text-amber-800 text-[13.5px] tracking-tight">Frame Exchanges</p>
+                        <p class="text-amber-700 text-xs mt-1 leading-snug">Some insurance plans restrict frame exchanges. When exchanging frames:</p>
+                        <ul class="text-amber-700 text-xs mt-0.5 leading-snug space-y-px pl-3">
+                            <li>• Pay any price difference for higher-value glasses</li>
+                            <li>• No refund for lower-value glasses</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Fair & Simple Rules (no extra line) -->
+            <div class="mb-3">
+                <div class="flex items-center gap-x-2 mb-2.5">
+                    <div class="icon-circle bg-slate-100 text-slate-600 rounded-full">
+                        <i class="fa-solid fa-balance-scale text-xs"></i>
+                    </div>
+                    <h3 class="font-semibold text-slate-700 text-sm tracking-tight">Fair &amp; Simple Rules</h3>
+                </div>
+               
+                <div class="text-xs text-slate-600 space-y-1 pl-8">
+                    <div class="flex items-start gap-x-2">
+                        <i class="fa-solid fa-check text-emerald-500 mt-0.5 text-xs flex-shrink-0"></i>
+                        <span>Return the original pair to start the process</span>
+                    </div>
+                    <div class="flex items-start gap-x-2">
+                        <i class="fa-solid fa-check text-emerald-500 mt-0.5 text-xs flex-shrink-0"></i>
+                        <span>Applies to complete pairs (frame + lenses)</span>
+                    </div>
+                    <div class="flex items-start gap-x-2">
+                        <i class="fa-solid fa-check text-emerald-500 mt-0.5 text-xs flex-shrink-0"></i>
+                        <span>We’ll always explain any details upfront</span>
+                    </div>
+                    <div class="flex items-start gap-x-2 text-slate-500">
+                        <i class="fa-solid fa-info-circle mt-0.5 text-xs flex-shrink-0"></i>
+                        <span>Excludes lost/stolen glasses, discontinued frames and CR-39</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</body>
+</html>
